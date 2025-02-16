@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addTodo, removeTodo, toggleTodo } from "../ReduxItem/Features/Todos/todoSlice";
+import { addTodo, removeTodo, toggleTodo } from "../Features/Todos/todoSlice";
 
 const TodoApp = () => {
   const [text, setText] = useState("");
@@ -69,7 +69,7 @@ const TodoApp = () => {
         </div>
 
 
-        <ul className="w-11/12 bg-white rounded-lg shadow p-5 space-y-4 max-w-lg ">
+        <ul className="w-11/12 rounded-lg space-y-4 max-w-lg ">
           {todos.map((todo) => (
             <li
               key={todo.id}
@@ -84,13 +84,13 @@ const TodoApp = () => {
                 onClick={() => dispatch(toggleTodo(todo.id))}
               >
                 <span>{todo.text}</span>
-                <span>{new Date(todo.id).toLocaleString()}</span>
+                <span className="text-gray-300 text-[14px]">{new Date(todo.id).toLocaleString()}</span>
               </div>
 
               <div className="flex space-x-3">
-                <button onClick={() => handleEditTodo(todo)} className="px-3 py-1 bg-yellow-400 text-white rounded-lg hover:bg-yellow-500">Edit</button>
+                <button onClick={() => handleEditTodo(todo)} className="px-3 py-1 bg-green-700 text-white rounded-lg hover:bg-green-600">Edit</button>
 
-                <button onClick={() => dispatch(removeTodo(todo.id))} className="px-3 py-1 bg-red-500 rounded-lg hover:bg-red-600">Delete</button>
+                <button onClick={() => dispatch(removeTodo(todo.id))} className="px-3 py-1 bg-red-500 rounded-lg text-white hover:bg-red-600">Delete</button>
               </div>
 
 

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { fetchPosts } from "../ReduxItem/Features/posts/postsSlice";
+import { fetchPosts } from "../Features/posts/postsSlice";
 
 const Posts = () => {
   const { posts, isLoading, isError, error } = useSelector(state => state.posts);
@@ -28,9 +28,14 @@ const Posts = () => {
 
   if (!isLoading && !isError && posts.length > 0) {
 
-    content = posts.slice(0, 8).map((post) => {
+    content = posts.slice(0, 4).map((post) => {
       return (
-        <li key={post.id} > {post.title}</li >
+        <>
+          <div key={post.id} className="bg-gray-100 rounded-md shadow-md p-5 w-[25%]">
+            <h1 className="mb-5">{post.title}</h1 >
+            <p>{post.body}</p >
+          </div>
+        </>
       )
     }
     )
@@ -39,11 +44,11 @@ const Posts = () => {
   }
 
   return (
-    <div>
-      <h1>Redux Data fetch from JSON-Placeholder</h1>
-      <ul>
+    <div className="pt-9 pb-15 text-center">
+      <h1 className="text-4xl mb-5 font-bold">Redux Data fetch from JSON-Placeholder</h1>
+      <div className="flex gap-3 w-5xl justify-center text-center m-auto">
         {content}
-      </ul>
+      </div>
 
     </div>
   )
