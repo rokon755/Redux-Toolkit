@@ -40,7 +40,7 @@ const Posts = () => {
 
   return (
     <div>
-      <h1>Redux Data fetch from JSON-placeholder</h1>
+      <h1>Redux Data fetch from JSON-Placeholder</h1>
       <ul>
         {content}
       </ul>
